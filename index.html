@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101210">
+  <meta name="description" content="Dream it. Build it. Launch it. SiteSpark helps you create a website from a simple description.">
+  <title>SiteSpark — your idea, online</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="SiteSpark home">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 2.5 19.8 12l9.7 4-9.7 3.8-3.8 9.7L12 19.8l-9.5-3.8L12 12 16 2.5Z"/><circle cx="25.5" cy="6.5" r="2"/></svg></span>
+        <span>site<span class="brand-light">spark</span></span>
+      </a>
+      <button class="new-project" id="newProject"><span>＋</span> New website</button>
+      <div class="side-label">WORKSPACE</div>
+      <button class="nav-item active" id="navBuilder"><span class="nav-icon">◫</span> Website builder</button>
+      <div class="side-label project-label">YOUR PROJECTS <span id="projectCount">1</span></div>
+      <div class="project-list" id="projectList"></div>
+      <div class="sidebar-bottom">
+        <div class="free-card"><div class="free-icon">✦</div><div><strong>Free to start</strong><p>Your first site is ready to shine.</p></div></div>
+        <button class="nav-item help-link" id="helpButton"><span class="nav-icon">?</span> How it works</button>
+        <div class="profile"><div class="avatar">S</div><div class="profile-text"><strong>SiteSpark</strong><span>Free workspace</span></div><span class="profile-dots">···</span></div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button>
+        <div class="breadcrumbs"><span>Workspace</span><span class="crumb-sep">/</span><strong id="topProjectName">Northstar Studio</strong></div>
+        <div class="top-actions"><span class="autosave"><i></i> Saved</span><button class="top-publish" id="publishButton"><span>↗</span> Publish</button></div>
+      </header>
+
+      <section class="workspace">
+        <div class="welcome-row">
+          <div><div class="eyebrow"><span class="eyebrow-star">✳</span> YOUR CREATIVE STUDIO</div><h1>Make it real<span class="title-period">.</span></h1><p class="welcome-copy">A little idea goes a long way. Describe your website and watch it take shape.</p></div>
+          <div class="step-pill"><span class="step-number">01</span> <span>Build your website</span></div>
+        </div>
+
+        <section class="prompt-card" aria-labelledby="promptTitle">
+          <div class="prompt-heading"><div class="prompt-sparkle">✦</div><div><h2 id="promptTitle">What are we making today?</h2><p>Tell us about your idea. The more detail, the better the first draft.</p></div><span class="ai-badge"><span>✦</span> AI POWERED</span></div>
+          <label class="sr-only" for="promptInput">Describe the website you want to create</label>
+          <textarea id="promptInput" maxlength="600" placeholder="A warm, modern website for my neighborhood coffee shop. Include our menu, story, opening hours, and a way to find us...">A warm, modern website for my neighborhood coffee shop. Include our menu, story, opening hours, and a way to find us.</textarea>
+          <div class="prompt-footer"><div class="prompt-hint"><span>↳</span> Start with a business, creator, or idea</div><div class="prompt-submit"><span id="charCount">0 / 600</span><button id="generateButton" class="generate-button"><span class="button-sparkle">✦</span> Generate website <span class="button-arrow">→</span></button></div></div>
+          <div class="suggestions"><span class="suggestion-label">TRY A STARTER</span><button class="suggestion-chip" data-prompt="A cheerful flower shop with a seasonal bouquet menu, our story, and a contact section">✿ Flower shop</button><button class="suggestion-chip" data-prompt="A bold portfolio for a freelance photographer showcasing selected work, a short bio, and booking details">◉ Photographer</button><button class="suggestion-chip" data-prompt="A friendly local yoga studio with class schedules, teacher introductions, and a free trial offer">⌁ Yoga studio</button></div>
+        </section>
+
+        <div class="editor-heading"><div><div class="section-overline">THE CANVAS</div><h2>Your website <span class="live-dot"></span><span class="live-label">LIVE PREVIEW</span></h2></div><div class="canvas-actions"><button class="icon-button" id="refreshPreview" title="Refresh preview" aria-label="Refresh preview">↻</button><button class="device-button active" data-device="desktop" title="Desktop preview" aria-label="Desktop preview">▰</button><button class="device-button" data-device="mobile" title="Mobile preview" aria-label="Mobile preview">▯</button><span class="action-divider"></span><button class="export-button" id="exportButton"><span>↓</span> Export HTML</button></div></div>
+
+        <div class="canvas-layout">
+          <aside class="edit-panel">
+            <div class="panel-title"><span class="panel-title-icon">✎</span><div><strong>Quick edits</strong><small>Make it yours</small></div></div>
+            <label for="editName">SITE NAME</label><input id="editName" type="text" maxlength="60" value="Northstar Coffee" placeholder="Your business name">
+            <label for="editHeadline">HEADLINE</label><textarea id="editHeadline" rows="3" maxlength="120" placeholder="A headline that feels like you"></textarea>
+            <label for="editDescription">INTRODUCTION</label><textarea id="editDescription" rows="4" maxlength="240" placeholder="A short introduction"></textarea>
+            <label for="editCta">BUTTON TEXT</label><input id="editCta" type="text" maxlength="32" value="Find your coffee" placeholder="Button text">
+            <div class="color-label"><label for="themeColor">ACCENT COLOR</label><div class="color-picker-wrap"><input type="color" id="themeColor" value="#d5f365" aria-label="Choose an accent color"><span id="colorValue">#D5F365</span></div></div>
+            <button class="apply-button" id="applyEdits">Apply changes <span>↗</span></button>
+            <p class="edit-note"><span>✦</span> Your edits update the preview instantly.</p>
+          </aside>
+          <section class="preview-wrap" aria-label="Website preview">
+            <div class="browser-bar"><div class="browser-dots"><i></i><i></i><i></i></div><div class="address-bar"><span class="lock-icon">⌑</span><span id="previewUrl">northstar-coffee.sitespark.site</span></div><button class="open-preview" title="Open preview in a new tab" id="openPreview">↗</button></div>
+            <div class="preview-viewport" id="previewViewport"><iframe id="sitePreview" title="Generated website preview" sandbox="allow-scripts allow-forms"></iframe></div>
+            <div class="preview-foot"><span><i></i> Preview is up to date</span><span>Made with <b>✦</b> SiteSpark</span></div>
+          </section>
+        </div>
+
+        <footer class="workspace-footer"><span>Good ideas deserve a home on the internet.</span><span>Built for your next big thing <b>✳</b></span></footer>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="modal-backdrop" id="publishModal" aria-hidden="true">
+    <section class="publish-modal" role="dialog" aria-modal="true" aria-labelledby="publishTitle">
+      <button class="modal-close" id="closeModal" aria-label="Close">×</button><div class="modal-art">↗</div><div class="modal-kicker">YOUR SITE IS READY FOR THE WORLD</div><h2 id="publishTitle">Let’s get you online.</h2><p class="modal-copy">Export your website, then host it for free with GitHub Pages. No payment or custom domain required.</p>
+      <div class="publish-steps"><div><span>1</span><p><strong>Export your site</strong><small>Download the finished HTML file.</small></p></div><div><span>2</span><p><strong>Add it to GitHub</strong><small>Upload it to a repository as <code>index.html</code>.</small></p></div><div><span>3</span><p><strong>Turn on Pages</strong><small>In Settings → Pages, deploy from your main branch.</small></p></div></div>
+      <button class="modal-primary" id="modalExport">Download website <span>↓</span></button><a class="github-pages-link" href="https://docs.github.com/pages/getting-started-with-github-pages/creating-a-github-pages-site" target="_blank" rel="noreferrer">See GitHub Pages instructions ↗</a><p class="free-disclaimer">GitHub Pages is free for public repositories. Hosting providers may change their terms.</p>
+    </section>
+  </div>
+  <div class="modal-backdrop" id="helpModal" aria-hidden="true"><section class="publish-modal help-modal" role="dialog" aria-modal="true" aria-labelledby="helpTitle"><button class="modal-close" id="closeHelp" aria-label="Close">×</button><div class="modal-art help-art">✦</div><div class="modal-kicker">YOUR IDEA, YOUR WEBSITE</div><h2 id="helpTitle">How SiteSpark works</h2><p class="modal-copy">Turn a description into a first draft, tweak the details, then export a standalone website you can host anywhere.</p><div class="publish-steps"><div><span>1</span><p><strong>Describe your idea</strong><small>Tell us the kind of site and what it should include.</small></p></div><div><span>2</span><p><strong>Personalize the draft</strong><small>Update the name, headline, intro, button, and color.</small></p></div><div><span>3</span><p><strong>Export and publish</strong><small>Download HTML and deploy it using a free static host.</small></p></div></div><p class="free-disclaimer">This starter uses in-browser generation. It does not send your prompt to an AI service.</p></section></div>
+  <script src="app.js"></script>
+</body>
+</html>
